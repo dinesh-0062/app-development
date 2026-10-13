@@ -80,7 +80,7 @@ async def root():
 
 
 # WebSocket Endpoint for real-time messaging, typing indicators, presence & call signals
-@app.websocket("/ws/{user_id}")
+@app.websocket(f"{settings.API_V1_STR}/ws/{{user_id}}")
 async def websocket_endpoint(websocket: WebSocket, user_id: str):
     await manager.connect(websocket, user_id)
     try:
